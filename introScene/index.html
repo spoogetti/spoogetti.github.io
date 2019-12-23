@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head><title>Intro</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style type="text/css">
+        .fullscreen {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        #info {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            z-index: 100;
+            display:block;
+            color:white;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="loading" style="position: absolute; top: 0; right: 0; left: 0; bottom: 0; background-color: #FFFFFF; z-index: auto;">
+        <div style="display: table; width: 100%; height: 100%;">
+            <div style="display: table-cell; vertical-align: middle; text-align: center;">
+                <div class="fa-3x">
+                    <i class="fas fa-spinner fa-spin"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="info">
+        Z Q S D: direction - Space: saut
+        <button onclick="window.location.href = 'http://' + window.location.hostname + ':' + window.location.port + '\/trophiesScene\/index.html';">Go to next scene</button>
+    </div>
+    <script type="text/javascript" src="/libs/three.min.js"></script>
+    <script type="text  /javascript" src="/libs/dat.gui.min.js"></script>
+    <script type="text/javascript" src="/libs/physi.js"></script>
+    <script type="text/javascript" src="/libs/tween.umd.js"></script>
+    <script type="module" src="scene.js"></script>
+</body>
+</html>
+
