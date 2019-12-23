@@ -1,5 +1,5 @@
 import * as THREE from '../libs/three.module.js';
-import {FBXLoader} from '../three.js-master/examples/jsm/loaders/FBXLoader.js';
+import {FBXLoader} from '../libs/loaders/FBXLoader.js';
 
 import {Utils} from './utils.js';
 import {Scene} from './scene.js';
@@ -19,7 +19,6 @@ const Trophy = {
         loader.load("../fbx/" + file, function (object) {
             object.scale.set(scale, scale, scale);
 
-            // Dans l'idéal se débarrasser de ces mutateurs
             object.position.set(position[0], position[1], position[2]);
             object.rotation.set(rotation[0], rotation[1], rotation[2]);
 

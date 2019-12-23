@@ -1,7 +1,7 @@
 // IMPORT DE THREE.JS
 import * as THREE from '../libs/three.module.js';
-import {OrbitControls} from '../libs/OrbitControls.js';
-import Stats from '../libs/stats.module.js';
+import {OrbitControls} from '../libs/controls/OrbitControls.js';
+import Stats from '../libs/libs/stats.module.js';
 
 import {Utils} from './utils.js';
 import {physijsScene} from './physijsScene.js'
