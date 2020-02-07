@@ -11,12 +11,13 @@ const physijsScene = {
         ground_material: null,
         ground: null,
         light: null,
+        reuseVector3: new THREE.Vector3(0, 0, 0),
     },
 
     initScene : function() {
         let vars = physijsScene.vars;
 
-        vars.physicsScene.setGravity(new THREE.Vector3( 0, /*-9.8*/ -500, 0 ));
+        vars.physicsScene.setGravity(vars.reuseVector3.set(0, /*-9.8*/ -500, 0 ));
         vars.physicsScene.addEventListener(
             'update',
             function() {
@@ -39,10 +40,10 @@ const physijsScene = {
         vars.ground.receiveShadow = false;
         vars.physicsScene.add(vars.ground);
         physijsScene.spawnSphere();
-        physijsScene.spawnTrophyGroup(new THREE.Vector3( 0, 0, -50), new THREE.Vector3( 0, 0, 0));
-        physijsScene.spawnTrophyGroup(new THREE.Vector3( 200, 0, 0), new THREE.Vector3( 0, -Math.PI/4, 0));
-        physijsScene.spawnTrophyGroup(new THREE.Vector3( -200, 0, 0), new THREE.Vector3( 0, Math.PI/4, 0));
-        physijsScene.spawnButton(new THREE.Vector3( 0, 0, 200), new THREE.Vector3( 0, 0, 0));
+        physijsScene.spawnTrophyGroup(vars.reuseVector3.set( 0, 0, -50), vars.reuseVector3.set( 0, 0, 0));
+        physijsScene.spawnTrophyGroup(vars.reuseVector3.set( 200, 0, 0), vars.reuseVector3.set( 0, -Math.PI/4, 0));
+        physijsScene.spawnTrophyGroup(vars.reuseVector3.set( -200, 0, 0), vars.reuseVector3.set( 0, Math.PI/4, 0));
+        physijsScene.spawnButton(vars.reuseVector3.set( 0, 0, 200), vars.reuseVector3.set( 0, 0, 0));
 
         vars.physicsScene.simulate();
     },

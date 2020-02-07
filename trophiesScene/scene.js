@@ -64,8 +64,6 @@ const Scene = {
         vars.renderer.shadowMap.enabled = true;
         vars.renderer.shadowMapSoft = true;
 
-        vars.container.appendChild(vars.renderer.domElement);
-
         // CRÉATION DE LA CAMÉRA
         vars.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 3000);
         vars.camera.position.set(-1.5, 210, 572);
@@ -79,7 +77,7 @@ const Scene = {
 
         // CRÉATION D’UN SOL
         let ground = new THREE.Mesh(
-            new THREE.PlaneBufferGeometry(2000, 2000),
+            new THREE.PlaneGeometry(2000, 2000),
             new THREE.MeshLambertMaterial({color: new THREE.Color(0xDADADA)})
         );
         ground.rotation.x = -Math.PI / 2;
@@ -90,7 +88,7 @@ const Scene = {
         // SOL TRANSPARENT POUR LES OMBRES
         let planeMaterial = new THREE.ShadowMaterial();
         planeMaterial.opacity = 0.07;
-        let shadowPlane = new THREE.Mesh(new THREE.PlaneBufferGeometry(2000, 2000), planeMaterial);
+        let shadowPlane = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000), planeMaterial);
         shadowPlane.rotation.x = -Math.PI / 2;
         shadowPlane.receiveShadow = true;
         vars.scene.add(shadowPlane);
@@ -105,7 +103,7 @@ const Scene = {
         Scene.addDirectionalLight('directional03', [400, 100, 200], lightIntensity/2, vars.frustum, false);
 
         // CREATION DE LA SPHERE QUI ENGLOBE TOUT
-        var sphereGeometry = new THREE.SphereBufferGeometry( 1000, 32, 32 );
+        var sphereGeometry = new THREE.SphereGeometry( 1000, 32, 32 );
         var sphereMaterial = new THREE.MeshStandardMaterial( { color: 0xFFFFFF, side : THREE.BackSide } );
         var sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
         vars.scene.add(sphere);
@@ -163,6 +161,8 @@ const Scene = {
 
                             Scene.animate();
                             $("#loading").remove();
+                            vars.container.appendChild(vars.renderer.domElement);
+
                         });
                     });
                 });
